@@ -12,6 +12,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .flex-container{
@@ -210,6 +211,11 @@ h3{
 font-size:1.3rem;
 font-family: 'Roboto', sans-serif;    
 }
+
+.flex-dir-row {
+    display: inline-flex;
+    flex-direction:row;
+}
 @media (min-width: 600px){
     .navbar{
         writing-mode: vertical-rl;
@@ -336,4 +342,40 @@ font-family: 'Roboto', sans-serif;
         flex-direction: row;
         justify-content: space-around;
     }
-}
+
+    .flex-project{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        margin: 2rem 8rem;
+    }
+
+    .flex-project div{
+        margin: 0.5rem;
+        text-align: center;
+    }
+
+    .flex-project h1 {
+        font-size:3rem;
+
+    }
+    .flex-project h2 {
+        font-size:1.75rem;
+        font-family: 'Roboto';
+        background-color:var(--yelow-line);
+    }
+    .flex-project p{
+        font-family: 'Roboto';
+        font-family:1.15rem;
+        margin:0.75rem 10rem;
+        text-align: left;
+    }
+
+    .flex-project p a {
+        border-bottom:1px solid var(--blue-line);
+        color:var(--blue-line);
+    }
+        
+    }
+

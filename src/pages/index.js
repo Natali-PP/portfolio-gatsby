@@ -34,9 +34,6 @@ const SiteDescriptionSection = styled.section`
     margin: 2rem 1rem;
 `
 
-const FlexContainer = styled.div`
-    display:flex;
-`
 const FlexContainerColumnCenter = styled.div`
     display:flex;
     justify-content:center;
@@ -107,34 +104,40 @@ const IndexPage = (props) => (
             
             <section>
                 <h1>Some proyects</h1>
-                <FlexContainerColumnCenter>
-                    <PreviewProyectText title="Asistocovid" tecn="React, Angular, JS, CSS, HTML, Figma" />
-                    <Img 
-                        fixed={props.data.imageOne.childImageSharp.fixed} 
-                        objectFit="cover"
-                        objectPosition="50% 50%"
-                    />
-                </FlexContainerColumnCenter>
+                <Link to="projects/asistocovid">
+                    <FlexContainerColumnCenter>
+                        <PreviewProyectText title="Asistocovid" tecn="React, Angular, JS, CSS, HTML, Figma" />
+                        <Img 
+                            fixed={props.data.imageOne.childImageSharp.fixed} 
+                            objectFit="cover"
+                            objectPosition="50% 50%"
+                        />
+                    </FlexContainerColumnCenter>
+                </Link>
 
-                <FlexContainerColumnCenter>
-                    <Img 
-                        fixed={props.data.imageTwo.childImageSharp.fixed} 
-                        objectFit="cover"
-                        objectPosition="50% 50%"
-                    />
-                    <PreviewProyectText title="Animated City Landing" tecn="JS, GSAP, CSS, HTML, Figma" />
-                </FlexContainerColumnCenter>
+                <Link to="projects/animated-city-landing">
+                    <FlexContainerColumnCenter>
+                        <Img 
+                            fixed={props.data.imageTwo.childImageSharp.fixed} 
+                            objectFit="cover"
+                            objectPosition="50% 50%"
+                        />
+                        <PreviewProyectText title="Animated City Landing" tecn="JS, GSAP, CSS, HTML, Figma" />
+                    </FlexContainerColumnCenter>
+                </Link>
 
+                <Link to="projects/mern-excercise-tracker">
+                    <FlexContainerColumnCenter>
+                        <PreviewProyectText title="MERN Excercise Tracker" tecn="MongoDB, Node, Express, React, Material-UI" />
+                        <Img 
+                            fixed={props.data.imageThree.childImageSharp.fixed} 
+                            objectFit="cover"
+                            objectPosition="50% 50%"
+                        />
+                    </FlexContainerColumnCenter>
+                </Link>
                 <FlexContainerColumnCenter>
-                    <PreviewProyectText title="MERN Excercise Tracker" tecn="MongoDB, Node, Express, React, Material-UI" />
-                    <Img 
-                        fixed={props.data.imageThree.childImageSharp.fixed} 
-                        objectFit="cover"
-                        objectPosition="50% 50%"
-                    />
-                </FlexContainerColumnCenter>
-                <FlexContainerColumnCenter>
-                    <StyledLink to="proyects">See all my proyects</StyledLink>
+                    <StyledLink to="projects">See all my proyects</StyledLink>
                 </FlexContainerColumnCenter>
             </section>
 
