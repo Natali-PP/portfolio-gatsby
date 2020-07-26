@@ -27,7 +27,13 @@ function Content() {
     ...random(i),
     config: { mass: 20, tension: 150, friction: 50 }
   }))
-  useEffect(() => void setInterval(() => set(i => ({ ...random(i), delay: i * 40 })), 3000), [])
+  
+    useEffect( () =>
+      void setInterval(
+        () => set(i => ({ ...random(i), delay: i * 40 })),
+        3000)
+    ,[]);  
+  
   return data.map((d, index) => (
     <a.mesh key={index} {...springs[index]} castShadow receiveShadow>
       <boxBufferGeometry attach="geometry" args={d.args} />
@@ -55,10 +61,15 @@ function Lights() {
 }
 
 export default function Cuadrados3D() {
+  const isBrowser = typeof window !== "undefined";
   return (
-    <Canvas shadowMap camera={{ position: [0, 0, 100], fov: 100 }}>
-      <Lights />
-      <Content />
-    </Canvas>
+    <>
+      { isBrowser && (
+        <Canvas shadowMap camera={{ position: [0, 0, 100], fov: 100 }}>
+          <Lights />
+          <Content />
+        </Canvas>
+      )}
+    </>  
   )
 }

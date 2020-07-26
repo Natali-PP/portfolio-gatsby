@@ -1,11 +1,18 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
-import Cuadrados3D from '../components/Cuadrados3D'
-import Text from '../components/About3DText'
-import { Canvas} from 'react-three-fiber'
+//import Cuadrados3D from '../components/Cuadrados3D'
 
+//import Loadable from "react-loadable"
+//
+//const loader = () => <div>Loading threejs...</div>
+////
+//// a component that will be defered to be rendered only on client side.
+//const LoadableCuadrado = Loadable({
+// loader : () => import('../components/Cuadrados3D.js'), // imports the component with the three.js and allows use of it safely
+// loading: loader,
+//})
 const  Container = styled.div`
   text-align-left;
   margin:2rem 8rem 0 10rem;
@@ -51,6 +58,7 @@ const Event = (props) => {
 }
 
 const AboutMe = () => {
+  const isBrowser = typeof window !== "undefined";
     return (
       <Layout>
         
@@ -77,10 +85,8 @@ const AboutMe = () => {
             <Event title="PyData Córdoba" type="Volunteer/Attendee - 2019"  />
             <Event title="Bootcamp Web 2nd Edition - MeT" type="Attendee - 2019"  />
             <Event title="Women in Data Science - Córdoba" type="Attendee - 2019" />
-          </div> 
-          <CuadradosStyled>
-            <Cuadrados3D></Cuadrados3D>
-          </CuadradosStyled>   
+          </div>
+            
         </Container>
         
       </Layout> 

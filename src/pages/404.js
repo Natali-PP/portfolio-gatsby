@@ -1,14 +1,25 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
 import styled from "styled-components"
-import Cuadrados3D from '../components/Cuadrados3D'
+//import Cuadrados3D from '../components/Cuadrados3D'
+import Loadable from "react-loadable"
+
+const loader = () => <div>Loading threejs...</div>
+//
+// a component that will be defered to be rendered only on client side.
+const LoadableCuadrado = Loadable({
+ loader : () => import('../components/Cuadrados3D.js'), // imports the component with the three.js and allows use of it safely
+ loading: loader,
+})
 const Main = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
+  canvas {
+    margin-left:3rem;
+  }
 `
 const Text = styled.div`
   position: absolute;
@@ -24,31 +35,34 @@ const Center = styled.div`
 `
 
 const StyledCuadrados = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
+  padding-left: 1rem;
+  overflow: hidden;
 `
 const Navbar = styled.div`
   position:absolute;
   top: 0;
   z-index:200;
 `
-const NotFoundPage = () => (
+const NotFoundPage = () => { 
+  const isBrowser = typeof window !== "undefined";
+  return (
     <Main>
       <Navbar>
         <Layout />
       </Navbar>
+      { isBrowser && (
+        <StyledCuadrados>
+          <LoadableCuadrado />
+        </StyledCuadrados>
+      )}
       <SEO title="404: Not found" />
-      <StyledCuadrados>
-        <Cuadrados3D />
-      </StyledCuadrados>
       <Text>
         <h1>NOT FOUND</h1>
         <Center><p>You just hit a route that doesn&#39;t exist... the sadness.</p></Center>
       </Text>
     </Main>
-)
+)}
 
 export default NotFoundPage;
