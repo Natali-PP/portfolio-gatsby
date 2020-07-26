@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[26],{BK2u:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),o=a.n(n),c=a("Wbzz"),l=a("vrFN"),r=a("Bl7J");t.default=function(){return o.a.createElement(r.a,null,o.a.createElement(l.a,{title:"Page two"}),o.a.createElement("h1",null,"Un proyecto"),o.a.createElement("p",null,"Acá va a haber(?) un proyecto"),o.a.createElement(c.Link,{to:"/"},"Go back to the homepage"))}}}]);
+//# sourceMappingURL=component---src-pages-proyecto-uno-js-1b0109a0e7ac928c7ec4.js.map
