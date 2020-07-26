@@ -12,7 +12,7 @@ const FooterContainer = styled.div`
 const Footer = () => {
     return (
         <FooterContainer>
-            <p>Created by Natali Palacio 2020</p>
+            <p>Created by Natali Palacio @ 2020</p>
         </FooterContainer>
     );
 };

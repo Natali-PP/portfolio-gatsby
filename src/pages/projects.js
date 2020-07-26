@@ -10,7 +10,7 @@ const ProyectsGrid = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-    margin: 0 2.5rem;
+    margin: 0 2.5rem 0 3.5rem;
     div {
         display:flex;
         justify-cotent:center;
@@ -138,6 +138,17 @@ const Projects = props => (
                 </div>
             </Link>
 
+            <Link to="js-calculator">
+            <div>
+                <ProyectText title="React Calculator" tecn="React, JS, CSS, HTML"/>
+                <Img 
+                        fixed={props.data.imageCalculator.childImageSharp.fixed} 
+                        objectFit="cover"
+                        objectPosition="50% 50%"
+                    />
+            </div>
+            </Link>
+
             <Link to="grid-layout-css">
             <div>
                 <ProyectText title="Grid Layout Blog" tecn="CSS, HTML"/>
@@ -258,6 +269,13 @@ export const pageQuery = graphql`
             }
         },
         imageTacoBar: file( relativePath: { eq: "taco-bar.png" }) {
+            childImageSharp {
+                fixed {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        },  
+        imageCalculator: file( relativePath: { eq: "calculator.png" }) {
             childImageSharp {
                 fixed {
                     ...GatsbyImageSharpFixed

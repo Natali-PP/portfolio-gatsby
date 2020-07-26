@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import styled, { createGlobalStyle } from "styled-components"
 import "../styles/main.css"
+import Cuadrados3D from '../components/Cuadrados3D'
 
 const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Alata&family=Alatsi&family=Roboto:wght@400;700&display=swap');
@@ -23,6 +24,8 @@ const StyledLink = styled(Link)`
   color: var(--blue);
   text-align:center;
   font-size:4rem;
+  font-family: 'Alata', sans-serif;
+  text-transform:uppercase;
 `
 
 const SiteDescriptionSection = styled.section`
@@ -51,6 +54,39 @@ const FlexContainerColumnCenter = styled.div`
         font-family: 'Roboto';
         background-color:var(--yellow);
     }
+`
+
+const CuadradosStyled = styled.div `
+  width:auto;
+  height:80vh;
+  overflow:auto;
+  margin-left: 3rem;
+`
+const Main = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`
+const Text = styled.div`
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  left: 30%;
+  line-height: 1em;
+  z-index:200;
+`
+const Center = styled.div`
+  text-align:center;
+`
+
+const StyledCuadrados = styled.div`
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
 `
 const ProyectRepeat = (props) => {
     if (props.innerwidth >= 600){
@@ -136,16 +172,19 @@ const IndexPage = (props) => (
                         />
                     </FlexContainerColumnCenter>
                 </Link>
-                <FlexContainerColumnCenter>
-                    <StyledLink to="projects">See all my proyects</StyledLink>
-                </FlexContainerColumnCenter>
+                <Main>
+                  <Text><StyledLink to="projects">See all my proyects</StyledLink></Text>
+                      <CuadradosStyled>
+                        <Cuadrados3D></Cuadrados3D>
+                      </CuadradosStyled>
+                </Main>
             </section>
 
-            {/* TODO: alguna animacion al hacer hover, unos cuadrados festejando o corazones */}
             <SiteDescriptionSection>
-                <h4>This site was built with GatsbyJS, React, CSS Grids and Flexbox! <i class="far fa-grin-stars"></i></h4>
-                <h4>It's fully responsive and mobile-friendly <i class="fas fa-mobile-alt"></i></h4>
+                <h6>This site was built with GatsbyJS, React, ThreeJS, CSS Grids and Flexbox!</h6>
+                <h6>It's fully responsive and mobile-friendly</h6>
             </SiteDescriptionSection>
+            
 
     </Layout>
 );
